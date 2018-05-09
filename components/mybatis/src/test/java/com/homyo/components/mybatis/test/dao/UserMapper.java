@@ -1,4 +1,4 @@
-package com.homyo.components.mybatis.test.domin;
+package com.homyo.components.mybatis.test.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 

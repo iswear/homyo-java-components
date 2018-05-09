@@ -1,6 +1,5 @@
 package com.homyo.components;
 
-import com.homyo.components.datasource.DataSourceGroup;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,13 +18,9 @@ public class DruidDataSourceAutoConfigurationTest {
     @Resource
     private DataSource dataSource;
 
-    @Resource
-    private DataSourceGroup dataSourceGroup;
-
     @Test
     public void injectDataSource() {
         System.out.println(dataSource);
-        System.out.println(dataSourceGroup);
     }
 
 }
