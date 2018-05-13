@@ -1,6 +1,5 @@
-package com.homyo.components;
+package com.homyo.component.datasource;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -13,12 +12,12 @@ import javax.sql.DataSource;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ApplicationTest.class)
-public class DruidDataSourceAutoConfigurationTest {
+public class Test {
 
     @Resource
     private DataSource dataSource;
 
-    @Test
+    @org.junit.Test
     public void injectDataSource() {
         System.out.println(dataSource);
     }
