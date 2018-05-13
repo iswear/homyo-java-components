@@ -18,18 +18,18 @@ import org.springframework.transaction.PlatformTransactionManager;
  * Created by iswear on 2018/5/6.
  */
 @Configuration
-@MapperScan(basePackages = "com.homyo.components.mybatis.test.dao", sqlSessionFactoryRef = "injectSqlSessionFactoryBean",
+@MapperScan(basePackages = "com.homyo.components.mybatis.test.dao",
+        sqlSessionFactoryRef = "injectSqlSessionFactoryBean",
         sqlSessionTemplateRef = "injectSqlSessionTemplate")
 public class MybatisConfigurationTest {
 
     @Bean
-    @ConfigurationProperties(prefix = "")
+    @ConfigurationProperties(prefix = "homyo.datasource")
     public DataSource injectDataSource() {
         return new DruidDataSource();
     }
 
     @Bean
-    @ConfigurationProperties(prefix = "")
     public PlatformTransactionManager injectTransactionManager() {
         DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
         transactionManager.setDataSource(injectDataSource());
@@ -37,17 +37,15 @@ public class MybatisConfigurationTest {
     }
 
     @Bean
-    @ConfigurationProperties(prefix = "")
     public SqlSessionFactory injectSqlSessionFactoryBean() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(injectDataSource());
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        factoryBean.setMapperLocations(resolver.getResources("classpath*:yaya"));
+        factoryBean.setMapperLocations(resolver.getResources("classpath*:mybatis/mapper/**/*.xml"));
         return factoryBean.getObject();
     }
 
     @Bean
-    @ConfigurationProperties(prefix = "")
     public SqlSessionTemplate injectSqlSessionTemplate() throws Exception {
         SqlSessionTemplate template = new SqlSessionTemplate(injectSqlSessionFactoryBean());
         return template;

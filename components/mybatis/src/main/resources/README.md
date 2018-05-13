@@ -21,7 +21,8 @@ import org.springframework.transaction.PlatformTransactionManager;
  * Created by iswear on 2018/5/6.
  */
 @Configuration
-@MapperScan(basePackages = "com.homyo.components.mybatis.test.dao", sqlSessionFactoryRef = "injectSqlSessionFactoryBean",
+@MapperScan(basePackages = "com.homyo.components.mybatis.test.dao",
+        sqlSessionFactoryRef = "injectSqlSessionFactoryBean",
         sqlSessionTemplateRef = "injectSqlSessionTemplate")
 public class MybatisConfigurationTest {
 
@@ -45,7 +46,7 @@ public class MybatisConfigurationTest {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(injectDataSource());
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        factoryBean.setMapperLocations(resolver.getResources("classpath*:yaya"));
+        factoryBean.setMapperLocations(resolver.getResources("classpath*:mybatis/mapper/**/*.xml"));
         return factoryBean.getObject();
     }
 

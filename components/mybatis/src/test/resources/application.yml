@@ -1,0 +1,13 @@
+homyo:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://vm-docker:3306/test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+
+homyo:
+  datasource2:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://vm-docker:3306/test?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456

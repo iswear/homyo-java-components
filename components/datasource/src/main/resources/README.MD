@@ -4,22 +4,22 @@
     /**
      * 数据源驱动类
      */
-    private String driverClassName;
+    private String driverClassName = "com.mysql.jdbc.Driver";
 
     /**
      * 数据库地址url
      */
-    private String url;
+    private String url = "jdbc:mysql://vm-docker:3306/test?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8";
 
     /**
      * 数据库用户名
      */
-    private String username;
+    private String username = "root";
 
     /**
      * 数据库用户密码
      */
-    private String password;
+    private String password = "123456";
 
     /**
      * 名称，不设置自动生成{@link com.alibaba.druid.pool.DruidAbstractDataSource}

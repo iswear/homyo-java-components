@@ -1,11 +1,12 @@
 package com.homyo.components.mybatis.test.dao;
 
-import org.apache.ibatis.annotations.Mapper;
+import com.homyo.components.mybatis.test.domin.entity.UserDO;
 
 /**
  * Created by iswear on 2018/5/6.
  */
-@Mapper
-public class UserMapper {
+public interface UserMapper {
+
+    int add(UserDO user);
 
 }
